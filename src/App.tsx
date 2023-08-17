@@ -78,66 +78,94 @@ const App: React.FC = () => {
 
 
   return (
-    <div>
-      <h1>Expense Tracker</h1>
+    <div className='App'>
+      <h1 className='header'>Expense Tracker</h1>
+      <div className='form'>
       <form onSubmit={handleSubmit}>
+          <label htmlFor='option'>Option</label>
+          <select
+          name='option' 
+          defaultValue={state.formData.option} 
+          onChange={handleChange}>
+                  <option value='cash'>Cash</option>
+                  <option value='card'>Card</option>
+                  <option value='coin'>Coin</option>
+                  <option value='other'>Other</option>
+          </select>
+          <label htmlFor='expense'>Expense</label>
+          <select
+          name='expense' 
+          defaultValue={state.formData.expense} 
+          onChange={handleChange}>
+                  <option value='market'>Market</option>
+                  <option value='car'>Car</option>
+                  <option value='subscription'>Subscription</option>
+                  <option value='othher'>Other</option>
+          </select>
 
-        <label htmlFor='option'></label>
-        <select
-        name='option' 
-        defaultValue={state.formData.option} 
-        onChange={handleChange}>
-                <option value='cash'>Cash</option>
-                <option value='card'>Card</option>
-                <option value='coin'>Coin</option>
-                <option value='other'>Other</option>
-        </select>
-        <label htmlFor='expense'></label>
-        <select
-        name='expense' 
-        defaultValue={state.formData.expense} 
-        onChange={handleChange}>
-                <option value='market'>Market</option>
-                <option value='car'>Car</option>
-                <option value='subscription'>Subscription</option>
-                <option value='othher'>Other</option>
-        </select>
-        
-        <label htmlFor='amount'></label>
-        <input
-          type='number'
-          name="amount"
-          onChange={handleChange}
-          placeholder="Amount"
-        />
-        <label htmlFor='date'></label>
-        <input
-          type="date"
-          name="date"
-          onChange={handleChange}
-          placeholder="Date"
+          <label htmlFor='amount'>Amount</label>
+            <input
+              type='number'
+              name="amount"
+              onChange={handleChange}
+              placeholder="Amount"
+            />
+          <label htmlFor='date'>Date</label>
+            <input
+              type="date"
+              name="date"
+              onChange={handleChange}
+              placeholder="Date"
 
-        />
-
-
-        <button type="submit">Submit</button>
-      </form>
-      <div>
-        <h2>List of Expenses</h2>
-      <div>
-      <ul>
-         {state.items.map((item, index) => (
-
-              <li key={index}>
-                <strong>Option:</strong> {item.option},{' '}
-                <strong>Expense:</strong> {item.expense},{' '}
-                <strong>Amount:</strong> {item.amount},{' '}
-                <strong>Date:</strong> {item.date?.toLocaleString()},{' '}
-              </li>
-          ))}
-        </ul>
+            />
+         <button type="submit">Submit</button>
+        </form>
       </div>
-      <div>
+      <div className='list'>
+        <h2>List of Expenses</h2>
+        <div>
+          <table className='custom-table'>
+            <thead>
+              <tr>
+                <th>
+                  Option
+                </th>
+                <th>
+                  Expense 
+                </th>
+                <th>
+                  Amount 
+                </th>
+                <th>
+                  Date 
+                </th>
+              </tr>  
+          </thead>
+              {state.items.map((item, index) => (
+              <tbody key={index}>
+                <tr >
+                  <td >
+                    {item.option}
+                  </td>
+                  <td>
+                    {item.expense}
+                  </td>
+                  <td>
+                    {item.amount}
+                  </td>
+                  <td>
+                      {item.date?.toLocaleString()},{' '}
+                  </td>
+                    
+                    
+                </tr>
+
+              </tbody> 
+              ))}
+        
+          </table>
+        </div>
+      <div className='sum'>
         sum : {totalExpense}
       </div>
     </div>

@@ -5,9 +5,88 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: aquamarine;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header{
+  font-weight: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form{
+  display:flex;
+  background-color: aqua;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input,select,button{
+  padding: 0.7rem;
+  margin: 2rem;
+  border:1px;
+  border-radius: 0.5rem;
+
+}
+
+
+
+.form label{
+  color: black;
+}
+
+.list{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ddd;
+}
+
+.custom-table{
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+}
+
+.sum{
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding: 0.7rem;
+  margin:0.5rem;
+}
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    padding: 2rem;
+  }
+
+  .form input,
+  .form select,
+  .form button {
+    margin: 0.5rem 0; /* Add vertical margin between stacked elements */
+  }
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
 }
