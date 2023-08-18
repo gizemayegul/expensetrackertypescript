@@ -19,7 +19,7 @@ type Action =
 const initialState: State = {
   formData: {
     option: 'cash',
-    date: null,
+    date: 'N/A',
     expense: 'market',
     amount: 0,
   },
@@ -40,7 +40,7 @@ function reducer(state: State, action: Action): State {
       return {
         formData: {
           option: 'cash',
-          date: null,
+          date: 'N/A',
           expense: 'market',
           amount: 0,
         },
@@ -154,7 +154,7 @@ const App: React.FC = () => {
                     {item.amount}
                   </td>
                   <td>
-                      {item.date?.toLocaleString()},{' '}
+                      {item.date?.toLocaleString()}
                   </td>
                     
                     
